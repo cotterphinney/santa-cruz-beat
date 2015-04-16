@@ -16,7 +16,7 @@ class Concert < ActiveRecord::Base
 end
 
 get '/' do
-	erb :index
+	erb :concerts
 end
 
 get '/concerts' do
