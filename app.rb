@@ -16,6 +16,7 @@ class Concert < ActiveRecord::Base
 end
 
 get '/' do
+  @concerts = Concert.order(date: :asc)
 	erb :concerts
 end
 
