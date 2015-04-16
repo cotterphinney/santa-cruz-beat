@@ -1,0 +1,36 @@
+body {
+
+}
+table {
+	background-color: white;
+}
+h1 {
+	/*font-family: 'Lobster', cursive;*/
+	font-size: 60px;
+}
+div.table-wrapper {
+	padding: 20px;
+	background-color: white;
+}
+th.date {
+	min-width: 150px;
+}
+th.venue {
+  min-width: 150px;
+}
+input.form-control {
+  margin-top: 60px;
+  padding: 10px 40px 10px 10px
+}
+div.fixed-table-container {
+  border: 0;
+}
+th, td {
+  border-left: 0 !important;
+}
+tbody tr:hover {
+  cursor: pointer;
+}
+button.btn-default {
+  margin: 0 5px 0 15px !important;
+}
