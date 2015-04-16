@@ -7,7 +7,7 @@ gem 'mechanize'
 gem 'activerecord'
 gem 'sinatra-activerecord'
 gem 'chronic'
-gem 'eventful'
+gem 'eventfulapi'
 gem 'sanitize'
 
 group :development do
