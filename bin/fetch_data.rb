@@ -2,9 +2,9 @@ require 'nokogiri'
 require 'open-uri'
 require 'chronic'
 require 'date'
-require './app'
 require 'eventful/api'
 require 'sanitize'
+require './app'
 
 @concerts = []
 
