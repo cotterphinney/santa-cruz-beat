@@ -7,6 +7,8 @@ gem 'mechanize'
 gem "activerecord"
 gem "sinatra-activerecord"
 gem "chronic"
+gem 'eventful'
+gem 'sanitize'
 
 group :development do
  gem 'sqlite3'
