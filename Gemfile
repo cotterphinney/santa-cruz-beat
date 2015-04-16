@@ -6,6 +6,7 @@ gem 'nokogiri'
 gem 'mechanize'
 gem "activerecord"
 gem "sinatra-activerecord"
+gem "chronic"
 
 group :development do
  gem 'sqlite3'
