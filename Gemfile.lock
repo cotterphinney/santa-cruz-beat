@@ -17,6 +17,7 @@ GEM
     arel (5.0.1.20140414130214)
     bond (0.5.1)
     builder (3.2.2)
+    chronic (0.10.2)
     domain_name (0.5.22)
       unf (>= 0.0.5, < 1.0.0)
     http-cookie (1.0.2)
@@ -81,6 +82,7 @@ PLATFORMS
 
 DEPENDENCIES
   activerecord
+  chronic
   mechanize
   nokogiri
   pg
