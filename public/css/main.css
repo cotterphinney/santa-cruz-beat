@@ -43,3 +43,18 @@ button.btn-default {
 #overlay_header {
   height: 30px !important;
 }
+
+@media (max-width: 1000px) {
+  th.concert {
+    min-width: 0;
+  }
+  th.date {
+    min-width: 0;
+  }
+  th.venue {
+    min-width: 0;
+  }
+  th.more {
+    min-width: 80px;
+  }
+}
