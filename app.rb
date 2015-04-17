@@ -20,10 +20,10 @@ get '/' do
 	erb :concerts
 end
 
-get '/concerts' do
-	@concerts = Concert.order(date: :asc)
-	erb :concerts
-end
+# get '/concerts' do
+# 	@concerts = Concert.order(date: :asc)
+# 	erb :concerts
+# end
 
 get '/api/concerts' do
 	@concerts = Concert.order(date: :asc).to_json

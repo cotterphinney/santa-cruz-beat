@@ -21,19 +21,19 @@
     	<table id="concerts-table" data-toggle="table" data-pagination="true" data-page-size="40" data-page-list="[40, 100, All]" data-search="true" data-toolbar="#toolbar">
         <thead>
           <tr>
-            <th class="date" data-sortable="true">Date</th>
-            <th class="venue" data-sortable="true">Venue</th>
             <th data-sortable="true">Concert</th>
-            <th>Description</th>
+            <th class="venue" data-sortable="true">Venue</th>
+            <th data-sortable="true">Description</th>
+            <th class="date">Time</th>
           </tr>
         </thead>
         <tbody>
           <% @concerts.each do |concert| %>
             <tr>
-              <td class="main"><a href="<%= concert[:link] %>"><%= concert.local_date_time %></a></td>
-              <td class="main"><%= concert[:venue] %></td>
               <td class="main"><%= concert[:title] %></td>
+              <td class="main"><%= concert[:venue] %></td>
               <td class="main"><%= concert.truncated_description %></td>
+              <td class="main"><a href="<%= concert[:link] %>"><%= concert.local_date_time %></a></td>
             </tr>
           <% end %>
         </tbody>
