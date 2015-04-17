@@ -10,7 +10,6 @@ h1 {
   font-weight: 500;
 }
 div.table-wrapper {
-	padding: 20px;
 	background-color: white;
 }
 th.concert {
@@ -21,6 +20,9 @@ th.date {
 }
 th.venue {
   min-width: 150px;
+}
+th.more {
+  min-width: 80px;
 }
 td.title-cell {
   font-weight: 600;
@@ -35,9 +37,9 @@ div.fixed-table-container {
 th, td {
   border-left: 0 !important;
 }
-tbody tr:hover {
-  cursor: pointer;
-}
 button.btn-default {
   margin: 0 5px 0 15px !important;
+}
+#overlay_header {
+  height: 30px !important;
 }
