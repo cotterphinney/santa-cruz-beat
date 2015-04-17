@@ -6,7 +6,7 @@ require './environments'
 
 class Concert < ActiveRecord::Base
 	def local_date_time
-		DateTime.parse(self.date.to_s).strftime("%a %m/%d %l:%M %p")
+		DateTime.parse(self.date.to_s).strftime("%a %-m/%d %l:%M %p")
 	end
 
   def truncated_description

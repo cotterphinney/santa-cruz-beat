@@ -7,16 +7,23 @@ table {
 h1 {
 	/*font-family: 'Lobster', cursive;*/
 	font-size: 60px;
+  font-weight: 500;
 }
 div.table-wrapper {
 	padding: 20px;
 	background-color: white;
+}
+th.concert {
+  min-width: 150px;
 }
 th.date {
 	min-width: 150px;
 }
 th.venue {
   min-width: 150px;
+}
+td.title-cell {
+  font-weight: 600;
 }
 input.form-control {
   margin-top: 60px;
