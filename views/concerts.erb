@@ -31,13 +31,13 @@
     <div id="toolbar" class="btn-group">
       <h1>Santa Cruz Beat</h1>
     </div>
-    <div class="table-wrapper">
+    <div>
     	<table id="concerts-table" data-toggle="table" data-pagination="true" data-page-size="40" data-page-list="[40, 100, All]" data-search="true" data-toolbar="#toolbar" data-sort-name="date" data-sort-order="desc">
         <thead>
           <tr>
             <th class="concert" data-sortable="true" data-sorter="alphabeticalSorter">Concert</th>
             <th class="venue" data-sortable="true" data-sorter="alphabeticalSorter">Venue</th>
-            <th>Description</th>
+            <th class="description">Description</th>
             <th class="date" data-field="date" data-sortable="true" data-sorter="dateSorter">Time</th>
             <th class="more"></th>
           </tr>
@@ -46,8 +46,8 @@
           <% @concerts.each do |concert| %>
             <tr>
               <td class="main title-cell"><%= concert[:title] %></td>
-              <td class="main"><%= concert[:venue] %></td>
-              <td class="main"><%= concert.truncated_description %></td>
+              <td class="venue"><%= concert[:venue] %></td>
+              <td class="description"><%= concert.truncated_description %></td>
               <td class="main"><%= concert.local_date_time %></td>
               <td><a class="btn btn-primary" href="<%= concert[:link] %>">More info</a></td>
             </tr>

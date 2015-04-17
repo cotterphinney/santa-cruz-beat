@@ -58,3 +58,15 @@ button.btn-default {
     min-width: 80px;
   }
 }
+
+@media (max-width: 730px) {
+  h1 {
+    font-size: 50px;
+  }
+  input.form-control {
+    
+  }
+  .description {
+    display: none;
+  }
+}
