@@ -2,6 +2,7 @@ require 'sinatra'
 require 'sinatra/activerecord'
 require 'active_record'
 require 'json'
+require 'date'
 require './environments'
 
 class Concert < ActiveRecord::Base
@@ -17,6 +18,7 @@ end
 
 get '/' do
   @concerts = Concert.order(date: :asc)
+  @concert_days = @concerts.group_by { |c| DateTime.parse(c.date.to_s).strftime("%Y/%m/%d") }
 	erb :concerts
 end
 
