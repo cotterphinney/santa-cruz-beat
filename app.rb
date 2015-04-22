@@ -3,11 +3,12 @@ require 'sinatra/activerecord'
 require 'active_record'
 require 'json'
 require 'date'
+require 'chronic'
 require './environments'
 
 class Concert < ActiveRecord::Base
 	def local_date_time
-		DateTime.parse(self.date.to_s).strftime("%a %-m/%d %l:%M %p")
+		DateTime.parse(self.date.to_s).strftime("%l:%M %p")
 	end
 
   def truncated_description
@@ -28,7 +29,13 @@ end
 # end
 
 get '/api/concerts' do
-	@concerts = Concert.order(date: :asc).to_json
+	concerts = Concert.order(date: :asc)
+  if params['from_date'] && params['to_date']
+    from_date = Chronic.parse(params['from_date'])
+    to_date = Chronic.parse(params['to_date'])
+    concerts = concerts.where("date >= ? AND date <= ?", from_date, to_date)
+  end
+  return concerts.to_json
 end
 
 get '/api/concerts/:id' do
@@ -36,3 +43,5 @@ get '/api/concerts/:id' do
   return status 404 if concert.nil?
   concert.to_json
 end
+
+# get '/api/concerts/'

@@ -33,6 +33,7 @@ def fetch_eventful_concerts(from_date, to_date)
 		unless results['events'].nil?
 			results['events']['event'].each do |event|
 				next if event.length < 3
+				next if event['title'].include? 'Guitar: Beginning Level' # manually exclude these for now
 				link = "http://eventful.com/events/" + event['id']
 				title = event['title']
 				venue = event['venue_name']

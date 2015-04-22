@@ -1,5 +1,5 @@
 body {
-
+  font-family: 'Lato', sans-serif;
 }
 table {
 	background-color: white;
@@ -9,39 +9,42 @@ h1 {
 	font-size: 60px;
   font-weight: 500;
 }
+h4.date {
+  font-weight: 700;
+}
+div.concert-wrapper {
+  background-color: red;
+  padding-left: 30px;
+}
 div.table-wrapper {
 	background-color: white;
 }
 th.concert {
-  min-width: 150px;
-}
-th.date {
-	min-width: 150px;
+  width: 25%;
 }
 th.venue {
-  min-width: 150px;
+  width: 15%;
+}
+th.description {
+  width: 35%;
+}
+th.time {
+	width: 10%;
 }
 th.more {
-  min-width: 80px;
+  width: 15%;
 }
 td.title-cell {
   font-weight: 600;
 }
-input.form-control {
-  margin-top: 60px;
-  padding: 10px 40px 10px 10px
+table.concerts-table {
+  width: 100%;
 }
-div.fixed-table-container {
-  border: 0;
+table.concerts-table th {
+  font-weight: 400;
 }
-th, td {
-  border-left: 0 !important;
-}
-button.btn-default {
-  margin: 0 5px 0 15px !important;
-}
-#overlay_header {
-  height: 30px !important;
+#content-wrapper {
+  background-color: blue;
 }
 
 @media (max-width: 1000px) {

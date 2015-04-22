@@ -5,11 +5,15 @@
 	<title>Concerts in Santa Cruz, California</title>
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="css/main.css">
-  <link rel="stylesheet" type="text/css" href="css/bootstrap-table.css">
   <link href='//fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
-  <script src="js/bootstrap-table.js"></script>
+  <script src="js/jquery.jscroll.min.js"></script>
+  <script type="text/javascript" src="//cdn.jsdelivr.net/momentjs/2.9.0/moment.min.js"></script>
+  <!-- Include Date Range Picker -->
+  <script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/1/daterangepicker.js"></script>
+  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/1/daterangepicker-bs3.css" />
+  <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
   <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -27,61 +31,58 @@
   BAROMETER.load('AXcCjEN1kzWM9sBGPTtE7');
 </script>
 <body>
-  <div class="container">
-    <div id="toolbar" class="btn-group">
-      <h1>Santa Cruz Beat</h1>
-    </div>
+  <h1>Santa Cruz Beat</h1><input name="daterange">
+  <div id="content-wrapper" class="container">
     <% @concert_days.each do |day, concerts| %>
-      <h4><%= Date.parse(day.to_s).strftime("%A %-m/%d") %></h4>
-      <div>
-      	<table class="concerts-table">
+    <div class="day-wrapper">
+      <h4 class="date"><%= Date.parse(day.to_s).strftime("%A %-m/%d") %></h4>
+      <div class="concert-wrapper">
+      	<table class="table table-condensed concerts-table">
           <thead>
             <tr>
-              <th class="concert" data-sortable="true" data-sorter="alphabeticalSorter">Concert</th>
-              <th class="venue" data-sortable="true" data-sorter="alphabeticalSorter">Venue</th>
+              <th class="concert">Concert</th>
+              <th class="venue">Venue</th>
               <th class="description">Description</th>
-              <th class="date" data-field="date" data-sortable="true" data-sorter="dateSorter">Time</th>
+              <th class="time">Time</th>
               <th class="more"></th>
             </tr>
           </thead>
           <tbody>
-            <% concerts.each do |concert| %>
-              <tr>
-                <td class="main title-cell"><%= concert[:title] %></td>
-                <td class="venue"><%= concert[:venue] %></td>
-                <td class="description"><%= concert.truncated_description %></td>
-                <td class="main"><%= concert.local_date_time %></td>
-                <td><a class="btn btn-primary" href="<%= concert[:link] %>">More info</a></td>
-              </tr>
-            <% end %>
+          <% concerts.each do |concert| %>
+            <tr>
+              <td class="title-cell"><%= concert[:title] %></td>
+              <td class="venue"><%= concert[:venue] %></td>
+              <td class="description"><%= concert.truncated_description %></td>
+              <td class="time"><%= concert.local_date_time %></td>
+              <td><a class="btn btn-primary" href="<%= concert[:link] %>">More info</a></td>
+            </tr>
+          <% end %>
           </tbody>
         </table>
       </div>
+    </div>
     <% end %>
   </div>
 
   <script>
     $(document).ready( function() {
       $('input.form-control').focus();
+      $('input[name="daterange"]').daterangepicker(
+      {
+        format: 'YYYY-MM-DD',
+        startDate: '2013-01-01',
+        endDate: '2013-12-31',
+        ranges: {
+          'Today': [moment(), moment()],
+          'This Week': [moment(), moment().add(6, 'days')],
+          'Next 30 Days': [moment(), moment().add(29, 'days')]
+        }
+      }, 
+      function(start, end, label) {
+        alert("A new date range was chosen: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
+        $('#content-wrapper').html('');
+      });
     });
-
-    function dateSorter(a, b) {
-      var dateA = Date.parse(a);
-      var dateB = Date.parse(b);
-      
-      if (dateA < dateB) return 1;
-      if (dateA > dateB) return -1;
-      return 0;
-    }
-
-    function alphabeticalSorter(a, b) {
-      var charA = a[0];
-      var charB = b[0];
-
-      if (charA < charB) return 1;
-      if (charA > charB) return -1;
-      return 0;
-    }
   </script>
 </body>
 </html>
