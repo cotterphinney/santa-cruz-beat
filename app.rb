@@ -19,6 +19,11 @@ end
 
 get '/' do
   @concerts = Concert.order(date: :asc)
+  if params['from_date'] && params['to_date']
+    from_date = Chronic.parse(params['from_date']+' 00:00:00')
+    to_date = Chronic.parse(params['to_date']+' 24:00:00')
+    @concerts = @concerts.where("date >= ? AND date <= ?", from_date, to_date)
+  end
   @concert_days = @concerts.group_by { |c| DateTime.parse(c.date.to_s).strftime("%Y/%m/%d") }
 	erb :concerts
 end

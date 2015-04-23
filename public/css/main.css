@@ -2,22 +2,41 @@ body {
   font-family: 'Lato', sans-serif;
 }
 table {
-	background-color: white;
+  background-color: white;
 }
 h1 {
-	/*font-family: 'Lobster', cursive;*/
-	font-size: 60px;
-  font-weight: 500;
-}
-h4.date {
+  /*font-family: 'Lobster', cursive;*/
+  font-size: 60px;
   font-weight: 700;
 }
+#header a {
+  color: #333;
+}
+#header p {
+  font-size: 20px;
+  margin-left: 10px;
+}
+button.change-date {
+  float: right;
+  min-width: 190px;
+  height: 40px;
+}
+#hidden-date-input {
+  display: none;
+}
+a:hover {
+  text-decoration: none;
+}
+.glyphicon-calendar {
+  margin-left: 9px;
+}
+.table>thead>tr>th {
+  border-bottom: 0;
+}
 div.concert-wrapper {
-  background-color: red;
-  padding-left: 30px;
+
 }
 div.table-wrapper {
-	background-color: white;
 }
 th.concert {
   width: 25%;
@@ -29,7 +48,7 @@ th.description {
   width: 35%;
 }
 th.time {
-	width: 10%;
+  width: 10%;
 }
 th.more {
   width: 15%;
@@ -37,14 +56,27 @@ th.more {
 td.title-cell {
   font-weight: 600;
 }
+div.day-wrapper {
+  border-bottom: 1px solid #ddd;
+  margin: 10px 0;
+  padding: 15px;
+}
 table.concerts-table {
   width: 100%;
 }
 table.concerts-table th {
   font-weight: 400;
 }
+div.calendar-wrapper {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+#header {
+  position: relative;
+}
 #content-wrapper {
-  background-color: blue;
+  max-width: 1000px;
 }
 
 @media (max-width: 1000px) {
@@ -69,7 +101,19 @@ table.concerts-table th {
   input.form-control {
     
   }
+  th.concert {
+  width: 35%;
+  }
+  th.venue {
+    width: 35%;
+  }
+  th.time {
+    width: 20%;
+  }
   .description {
     display: none;
+  }
+  div.concert-wrapper {
+
   }
 }
