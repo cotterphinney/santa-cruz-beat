@@ -27,12 +27,16 @@
   <div id="content-wrapper" class="container">
     <div id="header" class="row">
       <div class="col-md-8">
-        <a href="/"><h1>SANTA CRUZ BEAT</h1></a>
+        <a href="/"><h1>Santa Cruz Beat</h1></a>
+        <p>All the best concerts happening in Santa Cruz</p>
       </div>
       <div class="calendar-wrapper col-md-4">
         <input id="hidden-date-input">
       </div>
     </div>
+    <% if @concert_days.empty? %>
+    <h2>Sorry dude, no concerts happening then.</h2>
+    <% else %>
     <% @concert_days.each do |day, concerts| %>
     <div class="day-wrapper">
       <h4 class="date"><%= Date.parse(day.to_s).strftime("%A %-m/%d") %></h4>
@@ -54,13 +58,14 @@
               <td class="venue"><%= concert[:venue] %></td>
               <td class="description"><%= concert.truncated_description %></td>
               <td class="time"><%= concert.local_date_time %></td>
-              <td><a class="btn btn-primary" href="<%= concert[:link] %>">More info</a></td>
+              <td><a href="<%= concert[:link] %>">More info</a></td>
             </tr>
           <% end %>
           </tbody>
         </table>
       </div>
     </div>
+    <% end %>
     <% end %>
   </div>
 
@@ -100,7 +105,7 @@
             window.location = '/?from_date=' + date1Formatted + '&to_date=' + date2Formatted;
           }
         },
-        showTrigger: '<button id="change-date-button" class="btn btn-primary change-date" name="daterange">Change Date <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span></button>',
+        showTrigger: '<button id="change-date-button" class="btn btn-success change-date" name="daterange">Choose Date Range <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span></button>',
         minDate: new Date(2014, 12-1, 25),
         rangeSelect: true,
         showAnim: 'slideDown',

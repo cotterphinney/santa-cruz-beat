@@ -9,6 +9,13 @@ h1 {
   font-size: 60px;
   font-weight: 700;
 }
+#header a {
+  color: #333;
+}
+#header p {
+  font-size: 20px;
+  margin-left: 10px;
+}
 button.change-date {
   float: right;
   min-width: 190px;
