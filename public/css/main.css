@@ -86,8 +86,11 @@ div.calendar-wrapper {
   font-size: 16px;
   margin-left: 15px;
 }
-.concert-description {
+.concert-description a {
   color: #7f8c8d;
+}
+.concert-description a:hover {
+  text-decoration: underline;
 }
 .info-row {
   border-left: 4px solid #1abc9c;

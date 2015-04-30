@@ -56,7 +56,9 @@
             <div class="col-md-2 col-xs-2"><%= concert.local_date_time %></div>
             <div class="col-md-3 col-xs-3"><%= concert[:venue] %></div>
             <% if !concert.description.nil? %>
-              <div class="col-md-7 col-xs-7 concert-description"><%= concert.truncated_description %></div>
+              <div class="col-md-7 col-xs-7 concert-description">
+                <a href="<%= concert[:link] %>"><%= concert.truncated_description %></a>
+                </div>
             <% else %>
               <div class="col-md-7 col-xs-7 concert-description none"></div>
             <% end %>
