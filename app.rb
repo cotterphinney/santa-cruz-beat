@@ -12,7 +12,7 @@ class Concert < ActiveRecord::Base
 	end
 
   def truncated_description
-    return self.description[0..100] + "..." unless self.description.nil?
+    return self.description[0..50] + "..." unless self.description.nil?
     return self.description
   end
 end
