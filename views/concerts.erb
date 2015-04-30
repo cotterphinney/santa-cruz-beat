@@ -12,7 +12,7 @@
   <script src="js/bootstrap.min.js"></script>
   <script type="text/javascript" src="js/jquery.plugin.js"></script> 
   <script src="js/jquery.datepick.min.js"></script>
-  <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
   <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -25,49 +25,52 @@
   </script>
 </head>
 <body>
-  <div id="content-wrapper" class="container">
+  <div class="container-fluid">
     <div id="header" class="row">
       <div class="col-md-8">
         <a href="/"><h1>Santa Cruz Beat</h1></a>
         <p>All the best concerts happening in Santa Cruz</p>
       </div>
-      <div class="calendar-wrapper col-md-4">
-        <input id="hidden-date-input">
-      </div>
+
     </div>
+
+    <div class="content-wrapper">
+
     <% if @concert_days.empty? %>
-    <h2>Sorry dude, no concerts happening then.</h2>
+      <h2>Sorry dude, no concerts happening then.</h2>
     <% else %>
+
     <% @concert_days.each do |day, concerts| %>
+
     <div class="day-wrapper">
       <h4 class="date"><%= Date.parse(day.to_s).strftime("%A %-m/%d") %></h4>
-      <div class="concert-wrapper">
-      	<table class="table table-condensed concerts-table">
-          <thead>
-            <tr>
-              <th class="concert"></th>
-              <th class="venue"></th>
-              <th class="description"></th>
-              <th class="time"></th>
-              <th class="more"></th>
-            </tr>
-          </thead>
-          <tbody>
-          <% concerts.each do |concert| %>
-            <tr>
-              <td class="title-cell"><%= concert[:title] %></td>
-              <td class="venue"><%= concert[:venue] %></td>
-              <td class="description"><%= concert.truncated_description %></td>
-              <td class="time"><%= concert.local_date_time %></td>
-              <td><a href="<%= concert[:link] %>">More info</a></td>
-            </tr>
-          <% end %>
-          </tbody>
-        </table>
-      </div>
+
+      <% concerts.each do |concert| %>
+
+        <div class="concert-wrapper">
+          <div class="row">
+            <div class="col-md-12">
+              <span class="concert-title"><a href="<%= concert[:link] %>"><%= concert[:title] %></a></span>
+            </div>
+          </div>
+          <div class="info-row row">
+            <div class="col-md-2 col-xs-2"><%= concert.local_date_time %></div>
+            <div class="col-md-3 col-xs-3"><%= concert[:venue] %></div>
+            <% if !concert.description.nil? %>
+              <div class="col-md-7 col-xs-7 concert-description"><%= concert.truncated_description %></div>
+            <% else %>
+              <div class="col-md-7 col-xs-7 concert-description none"></div>
+            <% end %>
+          </div>
+        </div>
+
+      <% end %>
+
     </div>
     <% end %>
     <% end %>
+
+    </div>
   </div>
 
   <script>
@@ -106,7 +109,7 @@
             window.location = '/?from_date=' + date1Formatted + '&to_date=' + date2Formatted;
           }
         },
-        showTrigger: '<button id="change-date-button" class="btn btn-success change-date" name="daterange">Choose Date Range <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span></button>',
+        showTrigger: '<button id="change-date-button" class="btn btn-success change-date" name="daterange"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span></button>',
         minDate: new Date(2014, 12-1, 25),
         rangeSelect: true,
         showAnim: 'slideDown',

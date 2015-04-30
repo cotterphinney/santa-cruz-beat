@@ -1,25 +1,25 @@
 body {
-  font-family: 'Lato', sans-serif;
+  font-family: 'Raleway', sans-serif;
+  background-color: #2a84bf;
+  /*line-height: 1;*/
 }
-table {
-  background-color: white;
+#header {
+  color: #ecf0f1;
+  text-align: center;
 }
 h1 {
   /*font-family: 'Lobster', cursive;*/
   font-size: 60px;
-  font-weight: 700;
-}
-#header a {
-  color: #333;
+  color: #ecf0f1;
 }
 #header p {
   font-size: 20px;
   margin-left: 10px;
 }
 button.change-date {
-  float: right;
-  min-width: 190px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
+  padding: 0;
 }
 #hidden-date-input {
   display: none;
@@ -38,28 +38,16 @@ div.concert-wrapper {
 }
 div.table-wrapper {
 }
-th.concert {
-  width: 25%;
-}
-th.venue {
-  width: 15%;
-}
-th.description {
-  width: 35%;
-}
-th.time {
-  width: 10%;
-}
-th.more {
-  width: 15%;
-}
 td.title-cell {
   font-weight: 600;
 }
 div.day-wrapper {
-  border-bottom: 1px solid #ddd;
-  margin: 10px 0;
-  padding: 15px;
+
+
+}
+h4 {
+  color: #ecf0f1;
+  font-size: 24px;
 }
 table.concerts-table {
   width: 100%;
@@ -75,45 +63,45 @@ div.calendar-wrapper {
 #header {
   position: relative;
 }
-#content-wrapper {
-  max-width: 1000px;
+
+
+
+.content-wrapper {
+  max-width: 650px;
+  margin: 0 auto;
+}
+.concert-wrapper {
+  margin: 4px 0;
+}
+.concert-title {
+  font-size: 18px;
+  color: #ecf0f1;
+}
+.concert-title a {
+  color: #ecf0f1;
+  display: inline-block;
+  background-color: #1abc9c;
+  padding: 0 10px;
+}
+.concert-venue {
+  font-size: 16px;
+  margin-left: 15px;
+}
+.concert-description {
+  color: #7f8c8d;
+}
+.info-row {
+  border-left: 4px solid #1abc9c;
+  background-color: #ecf0f1;
+  margin-left: 0;
+  padding-right: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.info-row div {
+  padding-right: 0;
 }
 
-@media (max-width: 1000px) {
-  th.concert {
-    min-width: 0;
-  }
-  th.date {
-    min-width: 0;
-  }
-  th.venue {
-    min-width: 0;
-  }
-  th.more {
-    min-width: 80px;
-  }
-}
+.none {
 
-@media (max-width: 730px) {
-  h1 {
-    font-size: 50px;
-  }
-  input.form-control {
-    
-  }
-  th.concert {
-  width: 35%;
-  }
-  th.venue {
-    width: 35%;
-  }
-  th.time {
-    width: 20%;
-  }
-  .description {
-    display: none;
-  }
-  div.concert-wrapper {
-
-  }
 }
