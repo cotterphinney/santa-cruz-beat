@@ -33,7 +33,7 @@ a:hover {
   border-bottom: 0;
 }
 div.concert-wrapper {
-
+  margin: 4px 20px;
 }
 div.table-wrapper {
 }
@@ -68,9 +68,6 @@ div.calendar-wrapper {
 .content-wrapper {
   max-width: 650px;
   margin: 0 auto;
-}
-.concert-wrapper {
-  margin: 4px 0;
 }
 .concert-title {
   font-size: 18px;
